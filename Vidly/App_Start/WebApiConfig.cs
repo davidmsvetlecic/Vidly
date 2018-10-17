@@ -9,7 +9,7 @@ namespace Vidly
         public static void Register(HttpConfiguration config)
         {
             var settings = config.Formatters.JsonFormatter.SerializerSettings;
-            settings.ContractResolver=new CamelCasePropertyNamesContractResolver();
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             settings.Formatting = Formatting.Indented;
 
             config.MapHttpAttributeRoutes();
