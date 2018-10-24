@@ -6,17 +6,17 @@ using Vidly.Models;
 
 namespace Vidly.Controllers.Api
 {
-    public class RentalsController : ApiController
+    public class NewRentalsController : ApiController
     {
         private ApplicationDbContext _context;
 
-        public RentalsController(ApplicationDbContext context)
+        public NewRentalsController()
         {
             _context = new ApplicationDbContext();
         }
 
         [HttpPost]
-        public IHttpActionResult CreateRental(RentalDto newRental)
+        public IHttpActionResult CreateRental(NewRentalDto newRental)
         {
             var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
 
