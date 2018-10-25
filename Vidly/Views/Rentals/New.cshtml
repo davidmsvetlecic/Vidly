@@ -36,9 +36,7 @@
     <script>
         $(function () {
 
-            var vm = {
-                movieIds: []
-            };
+            var vm = { movieIds: [] };
 
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -84,7 +82,7 @@
                 vm.movieIds.push(movie.id);
                 });
 
-            $("#newRental").validate({
+            var validator = $("#newRental").validate({
                 submitHandler: function(e) {
                     $.ajax({
                         url: "/api/newRentals",
@@ -93,6 +91,12 @@
                     })
                     .done(function() {
                         toastr.success("Rentals successfully recorded.");
+
+                        $("#customer").typeahead("val", "");
+                        $("#movie").typeahead("val", "");
+                        $("#movies").empty();
+                        vm = { movieIds: [] };
+                        validator.resetForm();
                     })
                     .fail(function() {
                         toastr.error("Something unexpected happened.");
