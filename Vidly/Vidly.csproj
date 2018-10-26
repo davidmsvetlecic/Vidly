@@ -456,6 +456,8 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="AppSettings.config" />
+    <Content Include="ConnectionStrings.config" />
     <None Include="Properties\PublishProfiles\GoDaddyProfile.pubxml" />
     <None Include="Properties\PublishProfiles\TestingProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
