@@ -83,7 +83,7 @@
                 });
 
             var validator = $("#newRental").validate({
-                submitHandler: function(e) {
+                submitHandler: function() {
                     $.ajax({
                         url: "/api/newRentals",
                         method: "post",
@@ -92,9 +92,9 @@
                     .done(function() {
                         toastr.success("Rentals successfully recorded.");
 
-                        $("#customer").typeahead("val", "");
-                        $("#movie").typeahead("val", "");
                         $("#movies").empty();
+                        $("#movie").typeahead("val", "");
+                        $("#customer").typeahead("val", "");
                         vm = { movieIds: [] };
                         validator.resetForm();
                     })
